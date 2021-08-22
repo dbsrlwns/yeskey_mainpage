@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url(style_Reset.css);
-@import url(jquery.simplyscroll.css);
 
 /* common */
 .inner {
@@ -15,7 +14,40 @@ section {
     height: 20px;
     background: #f7f7f7;
 }
-
+.scrollTop {
+    position: fixed;
+    right: 30px;
+    bottom: -100px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.295);
+    border-radius: 30px;
+    background: url(https://www.yeskey.or.kr/resources/image/layout/btn_fixedtop.svg) no-repeat center center #fff;
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.5s;
+}
+.scrollTop.active {
+    bottom: 30px;
+    transition: 0.5s;
+}
+@keyframes header {
+    0% {
+        top: -80px;
+    }
+    100% {
+        top: 0;
+    }
+}
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 /* header */
 #header {
     position: fixed;
@@ -23,8 +55,9 @@ section {
     left: 0;
     width: 100%;
     height: 80px;
-    z-index: 10;
+    z-index: 1000;
     transition: 0.3s;
+    animation: header 0.3s 1s linear both;
 }
 #header.active {
     background: #fff;
@@ -136,18 +169,24 @@ section {
 }
 #main .mainBox img {
     width: 220px;
+    opacity: 0;
+    animation: opacity 1s 1s linear both;
 }
 #main .mainBox .italic { 
     font-size: 24px;
     font-style: italic;
     color: #c0bfc1;
     margin-top: 40px;
+    opacity: 0;
+    animation: opacity 1s 1.5s linear both;
 }
 #main .mainBox strong,
 #main .mainBox .p { 
     color: #fff;
     font-size: 50px;
     line-height: 70px;
+    opacity: 0;
+    animation: opacity 1s 2s linear both;
 }
 
 /* section1 */
@@ -156,6 +195,7 @@ section {
     width: 100%;
     background: url(../images/main_data_bg.png) no-repeat;
     background-position: center right;
+    opacity: 0;
 }
 section h1 {
     position: absolute;
@@ -180,6 +220,8 @@ section h1 {
     flex: 1;
     text-align: center;
     padding: 90px 0;
+    opacity: 0;
+    margin-top: 20px;
 }
 .iconArea .iconBox .icon {
     position: relative;
@@ -232,6 +274,7 @@ section h1 {
 /* section2 */
 .section2 {
     background: #f7f7f7;
+    opacity: 0;
 }
 .section2_text {
     text-align: center;
@@ -259,6 +302,8 @@ section h1 {
     height: 480px;
     border-radius: 20px;
     flex: 1;
+    opacity: 0;
+    position: relative;
 }
 .itemBox .item:last-child {
     margin-right: 0;
@@ -301,6 +346,7 @@ section h1 {
 /* section3 */
 .section3 {
     text-align: center;
+    opacity: 0;
 }
 .section3 .inner > p {
     font-size: 45px;
@@ -414,6 +460,9 @@ section h1 {
 }
 
 /* section4 */
+.section4 {
+    opacity: 0;
+}
 .section4 .inner {
     display: flex;
     padding: 100px 0;
@@ -422,6 +471,8 @@ section h1 {
     flex: 1;
     margin-left: 100px;
     padding-top: 60px;
+    position: relative;
+    left: -50px;
 }
 .finance_box .finance_title {
     color: #313131;
@@ -474,6 +525,9 @@ section h1 {
 }
 
 /* section5 */
+.section5 {
+    opacity: 0;
+}
 .section5 .inner {
     display: flex;
     padding: 100px 0;
@@ -482,6 +536,8 @@ section h1 {
     flex: 1;
     padding-top: 60px;
     margin-left: 300px;
+    position: relative;
+    right: -50px;
 }
 .bio_box .bio_title {
     color: #313131;
@@ -542,6 +598,9 @@ section h1 {
 }
 
 /* section6 */
+.section6 {
+    opacity: 0;
+}
 .section6 .inner {
     display: flex;
     padding: 100px 0;
@@ -549,6 +608,8 @@ section h1 {
 .otp_box {
     flex: 1;
     margin-left: 100px;
+    position: relative;
+    left: -50px;
 }
 .otp_box .otp_title {
     color: #313131;
@@ -608,6 +669,9 @@ section h1 {
 }
 
 /* section7 */
+.section7 {
+    opacity: 0;
+}
 .section7 .inner {
     display: flex;
     padding: 100px 0;
@@ -616,6 +680,8 @@ section h1 {
     flex: 1;
     padding-top: 60px;
     margin-left: 300px;
+    position: relative;
+    right: -50px;
 }
 .myInfo_box .myInfo_title {
     color: #313131;
@@ -674,6 +740,7 @@ section h1 {
 /* section8 */
 .section8 {
     background: #f7f7f7;
+    opacity: 0;
 }
 .section8 .section8_title p {
     font-size: 55px;
@@ -692,6 +759,7 @@ section h1 {
     border-radius: 30px;
     position: relative;
     transition: 0.3s;
+    top: 30px;
 }
 .info_box:hover {
     background: #8369f9;
@@ -744,6 +812,7 @@ section h1 {
     border: none;
     color: #fff;
     font-size: 16px;
+    outline: none;
 }
 .footer_left .footerLogo {
     margin-top: 40px;
@@ -762,6 +831,9 @@ section h1 {
 }
 .footer_right .lnb > li {
     padding: 0 20px;
+}
+.footer_right .lnb > li:first-child {
+    padding: 0 20px 0 0;
 }
 .footer_right .lnb > li::after {
     content: '';
@@ -809,7 +881,7 @@ section h1 {
 .sub_siteMap > li > a {
     color: #b3b5b9;
     font-size: 16px;
-    line-height: 30px;
+    line-height: 35px;
 }
 
 /* footer_lnb */
