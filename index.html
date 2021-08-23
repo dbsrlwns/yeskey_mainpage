@@ -13,9 +13,24 @@
 
 <body>
 
+  
   <div class="scrollTop"></div>
 
   <header id="header">
+    <div class="searchBox">
+      <div class="inner">
+        <input type="text" placeholder="검색어를 입력해주세요" class="searchInput" maxlength="30">
+        <span class="hidden_text"></span>
+        <div class="searchIcon"></div>
+        <ul>
+          <li>예시</li>
+          <li><a href="#">금융인증서</a></li>
+          <li><a href="#">공동인증서</a></li>
+          <li><a href="#">비즈니스 제휴</a></li>
+        </ul>
+      </div>
+    </div>
+    
     <div class="inner">
       <div class="headerLogo">
         <a href="#"></a>
@@ -66,19 +81,19 @@
         <div class="iconBox">
           <div class="icon"></div>
           <p>매초</p>
-          <span><strong>245</strong>건+</span>
+          <span><strong class="number1" data-rate="245"></strong>건+</span>
         </div>
 
         <div class="iconBox">
           <div class="icon"></div>
           <p>매시간</p>
-          <span><strong>88</strong>만건+</span>
+          <span><strong class="number2" data-rate="88"></strong>만건+</span>
         </div>
 
         <div class="iconBox">
           <div class="icon"></div>
           <p>하루</p>
-          <span><strong>2,118</strong>만건+</span>
+          <span><strong class="number3" data-rate="2118"></strong>만건+</span>
         </div>
       </div>
 

@@ -48,6 +48,99 @@ section {
         opacity: 1;
     }
 }
+
+/* searchBox */
+.searchBox {
+    display: none;
+    width: 100%;
+    height: 200px;
+    background: #37353f;
+    padding: 30px 0;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: 1000;
+}
+.searchBox .inner {
+    position: relative;
+}
+.searchBox input {
+    width: 100%;
+    height: 80px;
+    color: #8c8b90;
+    font-size: 30px;
+    background: #37353f;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+.searchBox .hidden_text {
+    visibility: hidden;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    cursor: pointer;
+    z-index: 11;
+}
+.searchBox .hidden_text::before,
+.searchBox .hidden_text::after {
+    content: '';
+    display: block;
+    width: 75%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+.searchBox .hidden_text::before {
+    transform: rotate(45deg);
+}
+.searchBox .hidden_text::after {
+    transform: rotate(-45deg);
+}
+.searchIcon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    cursor: pointer;
+    background: url(https://www.yeskey.or.kr/resources/image/layout/btn_totalsearch_white.svg) no-repeat;
+}
+.searchBox ul {
+    display: flex;
+    margin-top: 30px;
+}
+.searchBox ul li:first-child {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+.searchBox ul li a {
+    display: block;
+    padding: 0 20px;
+    color: #8c8b90;
+}
+.searchBox ul li:not(:first-child) a::after {
+    content: '';
+    position: relative;
+    top: 2px;
+    left: 20px;
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    background: #8c8b90;
+}
+.searchBox ul li:last-child a::after {
+    display: none;
+}
+
 /* header */
 #header {
     position: fixed;
@@ -74,6 +167,9 @@ section {
 #header.active .searchArea a {
     display: block;
     background: url(../images/btn_totalsearch.png) no-repeat;
+}
+#header.active .searchArea a.active {
+    background: url(https://www.yeskey.or.kr/resources/image/layout/btn_totalsearch_close.svg) no-repeat;
 }
 #header > .inner {
     display: flex;
@@ -125,9 +221,6 @@ section {
     margin-right: 130px;
     
 }
-#mainMenu .mainLi {
-    
-}
 #mainMenu .mainLi > a {
     display: inline-block;
     padding: 0 25px;
@@ -142,6 +235,9 @@ section {
     height: 20px;
     background: url(https://www.yeskey.or.kr/resources/image/layout/btn_totalsearch_white.svg) no-repeat;
     background-size: cover;
+}
+.searchArea a.active {
+    background: url(https://www.yeskey.or.kr/resources/image/layout/btn_totalsearch_close.svg) no-repeat;
 }
 
 /* main */
